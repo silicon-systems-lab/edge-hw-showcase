@@ -2,6 +2,36 @@
 
 ### Silicon-Aware Infrastructure Development Pattern
 
+TOC:
+```
+│
+├─ 1. Purpose
+├─ 2. Engineering Philosophy
+│     ├─ Deterministic Systems Thinking
+│     ├─ Hardware Effects First
+│     ├─ Cross-Silicon Comparability
+│     ├─ Measurement Before Optimization
+│     └─ Infrastructure Awareness
+│
+├─ 3. Development Trajectory
+│     ├─ Phase 0 – Host Validation Layer
+│     ├─ Phase 1 – Silicon-Constrained Node
+│     ├─ Phase 2 – Concurrency & Kernel Effects
+│     └─ Phase 3 – Accelerator Infrastructure
+│
+├─ 4. Repository Structure Pattern
+│
+├─ 5. Experiment Documentation Standard
+│
+├─ 6. Career Positioning Intent
+│
+├─ 7. Non-Goals
+│
+├─ 8. Success Criteria
+│
+└─ 9. Failure Modes of Engineering Labs
+```
+
 ---
 
 # 1. PURPOSE
@@ -117,6 +147,42 @@ Root causes must be traced across layers.
 
 ---
 
+## 2.6 Systems Research Laboratory Model
+
+This repository follows the operational model commonly used in modern systems research laboratories.
+
+The approach is inspired by practices observed in:
+
+- MIT CSAIL systems laboratories
+- Stanford systems research groups
+- large-scale infrastructure benchmarking teams in industry
+
+Such laboratories typically share several structural characteristics:
+
+1. **Deterministic experimental environments**
+
+   Experiments must run under controlled conditions to ensure reproducibility.
+
+2. **Experiment-centric repository structure**
+
+   Research artifacts are organized around experiments rather than application features.
+
+3. **Machine-readable measurement artifacts**
+
+   All experiments produce structured output suitable for later analysis.
+
+4. **Cross-platform comparison**
+
+   Experiments are designed to highlight architectural differences across hardware platforms.
+
+5. **Analysis-driven documentation**
+
+   Performance numbers alone are insufficient; every experiment must include interpretation and reasoning.
+
+This repository adopts the same principles in order to function as a **deterministic systems experimentation laboratory** rather than a collection of ad-hoc benchmarks.
+
+---
+
 # 3. SIX-MONTH DEVELOPMENT TRAJECTORY
 
 The repository evolves in parallel with a **six-month technical preparation plan**.
@@ -228,27 +294,27 @@ edge-hw-showcase/
 
 benchmarks/
 
-memory/
-sequential_scan
-random_pointer_walk
-tlb_pressure
+    memory/
+        sequential_scan
+        random_pointer_walk
+        tlb_pressure
 
-concurrency/
-false_sharing
-lock_contention
+    concurrency/
+        false_sharing
+        lock_contention
 
-kernel/
-syscall_cost
-scheduler_behavior
+    kernel/
+        syscall_cost
+        scheduler_behavior
 
-accelerator/
-dma_latency
-batch_scaling
+    accelerator/
+        dma_latency
+        batch_scaling
 
 analysis/
-m2_results
-rk3588_results
-cross_silicon_comparison
+    m2_results
+    rk3588_results
+    cross_silicon_comparison
 ```
 
 Each benchmark must include:
@@ -385,3 +451,91 @@ After six months, the repository should demonstrate:
 4. accelerator infrastructure awareness
 
 The repository should clearly position its author as a **silicon-aware infrastructure engineer**.
+
+---
+
+# 9. Failure Modes of Engineering Labs
+
+- lack of determinism
+- missing experiment contracts
+- uncontrolled hardware environment
+- premature optimization
+- absence of reproducible artifacts
+
+Engineering laboratories frequently degrade over time if structural discipline is not enforced.
+
+Common failure modes include:
+
+### 9.1 Non-Deterministic Environments
+
+Experiments executed under uncontrolled conditions produce measurements that cannot be reproduced.
+
+Typical causes include:
+
+- dynamic CPU frequency scaling
+- unstable thermal conditions
+- kernel changes without documentation
+- uncontrolled runtime configuration
+
+Preventive rule:
+
+All experiments must enforce deterministic execution policies.
+
+---
+
+### 9.2 Missing Experiment Contracts
+
+Experiments that lack a clear structure become impossible to repeat or compare.
+
+Typical symptoms:
+
+- ad-hoc scripts
+- undocumented parameters
+- missing measurement description
+
+Preventive rule:
+
+Every experiment must follow a defined **experiment contract**.
+
+---
+
+### 9.3 Uncontrolled Hardware Environment
+
+Changes in hardware configuration invalidate historical measurements.
+
+Examples include:
+
+- firmware updates
+- kernel upgrades
+- memory configuration changes
+- thermal envelope differences
+
+Preventive rule:
+
+Hardware configuration must be documented and versioned.
+
+---
+
+### 9.4 Optimization Without Measurement
+
+Engineering effort spent optimizing without measurement leads to incorrect conclusions.
+
+Typical pattern:
+```
+assumption → tweak → assumption
+```
+
+Required pattern:
+```
+hypothesis → measurement → interpretation
+```
+
+---
+
+### 9.5 Missing Experimental Artifacts
+
+Experiments that only produce terminal output are effectively lost.
+
+Preventive rule:
+
+All experiments must generate **machine-readable artifacts** stored in the repository.
