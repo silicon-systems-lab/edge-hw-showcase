@@ -24,6 +24,14 @@ Hypothesis → Execute → Measure → Store → Compare → Interpret
 
 ## 2. Experiment Contract
 
+This repository enforces determinism via contracts:
+
+- Experiment Manifest (what runs)
+- Runner Contract (how it runs)
+- Result Artifact Schema (what is produced)
+
+No experiment is considered valid unless it produces a schema-valid artifact.
+
 Any experiment boilerplate is:
 
 ```

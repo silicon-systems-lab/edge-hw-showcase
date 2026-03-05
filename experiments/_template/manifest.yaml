@@ -1,0 +1,11 @@
+id: memory.pointer_chase
+version: 1
+description: "Random pointer chasing to stress cache/TLB and memory latency"
+entry:
+  run: ./run.sh
+  measure: ./measure.sh
+params:
+  seconds: 30
+  threads: 1
+outputs:
+  artifact: results/result.json

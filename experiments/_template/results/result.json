@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "experiment": { "id": "memory.pointer_chase", "version": 1 },
+  "run": {
+    "timestamp": "2026-03-05T18:10:00+02:00",
+    "host": { "arch": "arm64", "os": "linux", "machine": "m2-max-vm" },
+    "kernel": { "release": "6.1.0", "policy": "host-baseline" }
+  },
+  "params": { "seconds": 30, "threads": 1 },
+  "metrics": {
+    "latency_ns_p50": 0,
+    "latency_ns_p99": 0,
+    "throughput_ops_sec": 0
+  },
+  "raw": {
+    "perf_stat": "",
+    "notes": ""
+  }
+}
